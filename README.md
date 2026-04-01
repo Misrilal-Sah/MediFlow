@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
   <img src="https://res.cloudinary.com/ddrlxvnsh/image/upload/v1775064288/logo_kyqvgv.png" alt="MediFlow Logo" height="80">
 
   # MediFlow
@@ -12,19 +12,19 @@
 
 ---
 
-MediFlow is a full-stack web application for managing hospital operations — doctors, patients, and appointments — built with Flask and MySQL. It features a modern dark/light-mode UI, email-verified authentication, and a responsive collapsible sidebar.
+MediFlow is a full-stack web application for managing hospital operations â€” doctors, patients, and appointments â€” built with Flask and MySQL. It features a modern dark/light-mode UI, email-verified authentication, and a responsive collapsible sidebar.
 
 ## Features
 
-- **Authentication** — Signup with email verification, login, forgot/reset password via secure tokenized email links
-- **Doctors** — Add, edit, delete doctors with specialization, availability days, and fee
-- **Patients** — Full patient records with contact details and history
-- **Appointments** — Book, manage, and track appointments with status (Scheduled / Completed / Cancelled)
-- **Dashboard** — Stats overview with charts, recent appointments timeline, and quick-access cards
-- **Settings** — Update profile, change password, email change with confirmation link
-- **Theme** — Dark / Light mode toggle, persisted per browser
-- **Responsive UI** — Collapsible sidebar with SVG icons, glass morphism design
-- **Email notifications** — Welcome email on signup, email verification, password reset, email change confirmation
+- **Authentication** â€” Signup with email verification, login, forgot/reset password via secure tokenized email links
+- **Doctors** â€” Add, edit, delete doctors with specialization, availability days, and fee
+- **Patients** â€” Full patient records with contact details and history
+- **Appointments** â€” Book, manage, and track appointments with status (Scheduled / Completed / Cancelled)
+- **Dashboard** â€” Stats overview with charts, recent appointments timeline, and quick-access cards
+- **Settings** â€” Update profile, change password, email change with confirmation link
+- **Theme** â€” Dark / Light mode toggle, persisted per browser
+- **Responsive UI** â€” Collapsible sidebar with SVG icons, glass morphism design
+- **Email notifications** â€” Welcome email on signup, email verification, password reset, email change confirmation
 
 ## Tech Stack
 
@@ -42,25 +42,25 @@ MediFlow is a full-stack web application for managing hospital operations — do
 
 ```
 mediflow/
-├── app.py              # Main Flask application & all routes
-├── config.py           # Config loaded from .env
-├── requirements.txt    # Python dependencies
-├── schema.sql          # Database schema (CREATE TABLE statements)
-├── seed.sql            # Optional seed data
-├── .env.example        # Environment variable template
-├── static/
-│   ├── css/style.css   # Full custom design system
-│   └── js/script.js    # Theme toggle, sidebar, modals, toasts
-└── templates/
-    ├── base.html               # Base layout (sidebar, topbar, loader)
-    ├── dashboard.html
-    ├── doctors.html / add_doctor.html / edit_doctor.html
-    ├── patients.html / add_patient.html / edit_patient.html
-    ├── appointments.html / book_appointment.html
-    ├── settings.html
-    ├── login.html / signup.html
-    ├── forgot_password.html / reset_password.html
-    └── verify_email_pending.html
+â”œâ”€â”€ app.py              # Main Flask application & all routes
+â”œâ”€â”€ config.py           # Config loaded from .env
+â”œâ”€â”€ requirements.txt    # Python dependencies
+â”œâ”€â”€ schema.sql          # Database schema (CREATE TABLE statements)
+â”œâ”€â”€ seed.sql            # Optional seed data
+â”œâ”€â”€ .env.example        # Environment variable template
+â”œâ”€â”€ static/
+â”‚   â”œâ”€â”€ css/style.css   # Full custom design system
+â”‚   â””â”€â”€ js/script.js    # Theme toggle, sidebar, modals, toasts
+â””â”€â”€ templates/
+    â”œâ”€â”€ base.html               # Base layout (sidebar, topbar, loader)
+    â”œâ”€â”€ dashboard.html
+    â”œâ”€â”€ doctors.html / add_doctor.html / edit_doctor.html
+    â”œâ”€â”€ patients.html / add_patient.html / edit_patient.html
+    â”œâ”€â”€ appointments.html / book_appointment.html
+    â”œâ”€â”€ settings.html
+    â”œâ”€â”€ login.html / signup.html
+    â”œâ”€â”€ forgot_password.html / reset_password.html
+    â””â”€â”€ verify_email_pending.html
 ```
 
 ## Getting Started
@@ -156,6 +156,13 @@ Visit `http://127.0.0.1:5000` in your browser.
 | `SMTP_DISPLAY_NAME` | Display name in emails | `MediFlow` |
 
 
+
+## Screenshots
+
+The dashboard features live stats, a doughnut chart for appointment status distribution, and a timeline of upcoming appointments.
+
+> UI screenshots coming soon. Run the app locally to preview.
+
 ## Roadmap
 
 - [ ] Role-based access control (Admin / Doctor / Receptionist)
@@ -177,4 +184,5 @@ Contributions are welcome! Please open an issue first to discuss the change you'
 
 ## License
 
-MIT © Misrilal Sah
+MIT Â© Misrilal Sah
+
