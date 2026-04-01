@@ -172,6 +172,20 @@ The dashboard features live stats, a doughnut chart for appointment status distr
 - [ ] REST API for mobile integration
 - [ ] Docker support for easy deployment
 
+
+## Changelog
+
+### v1.1.0
+- Added mobile responsive layout with off-canvas sidebar
+- Tablet (768–1024px): icon-only collapsed sidebar
+- Mobile (≤767px): hamburger header, full-width content
+- Fixed iOS input auto-zoom on all form pages
+
+### v1.0.0
+- Initial release: doctors, patients, appointments, dashboard
+- Email verification flow with tokenized links
+- Dark / Light mode toggle
+
 ## Contributing
 
 Contributions are welcome! Please open an issue first to discuss the change you'd like to make, then submit a pull request.
@@ -185,4 +199,5 @@ Contributions are welcome! Please open an issue first to discuss the change you'
 ## License
 
 MIT Â© Misrilal Sah
+
 
