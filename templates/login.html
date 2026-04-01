@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Login | MediFlow{% endblock %}
+{% block topbar %}{% endblock %}
+{% block page_title %}Welcome Back{% endblock %}
+
+{% block content %}
+<section class="auth-card glass reveal">
+  <h2>Login</h2>
+  <form method="POST" class="form-grid">
+    <label>Email</label>
+    <input type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" required placeholder="••••••••" autocomplete="current-password">
+      <p style="margin:.5rem 0 0;text-align:right;font-size:.85rem">
+        <a href="{{ url_for('forgot_password') }}" style="color:var(--p1);text-decoration:none;font-weight:500">Forgot password?</a>
+      </p>
+    </div>
+
+    <button class="btn-primary ripple" type="submit">Sign In</button>
+  </form>
+  <p class="muted">No account? <a href="{{ url_for('signup') }}" style="color:var(--p1);text-decoration:none;font-weight:600">Create one</a></p>
+</section>
+{% endblock %}

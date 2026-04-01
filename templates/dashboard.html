@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | MediFlow{% endblock %}
+{% block page_title %}Dashboard Overview{% endblock %}
+
+{% block content %}
+<section class="cards-grid reveal">
+  <article class="stat-card glass tilt">
+    <h3>Doctors</h3>
+    <p class="stat-number">{{ doctors_count }}</p>
+  </article>
+  <article class="stat-card glass tilt">
+    <h3>Patients</h3>
+    <p class="stat-number">{{ patients_count }}</p>
+  </article>
+  <article class="stat-card glass tilt">
+    <h3>Appointments</h3>
+    <p class="stat-number">{{ appointments_count }}</p>
+  </article>
+</section>
+
+<section class="grid-2 reveal">
+  <article class="panel glass">
+    <h3>Today’s Appointments</h3>
+    {% if today_appointments %}
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Patient</th><th>Doctor</th><th>Time</th><th>Status</th></tr></thead>
+          <tbody>
+            {% for a in today_appointments %}
+            <tr>
+              <td>{{ a[0] }}</td>
+              <td>{{ a[1] }}</td>
+              <td>{{ a[2] }}</td>
+              <td>{{ a[3] }}</td>
+              <td><span class="badge badge-{{ a[4]|lower }}">{{ a[4] }}</span></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="muted">No appointments for today.</p>
+    {% endif %}
+  </article>
+
+  <article class="panel glass">
+    <h3>Appointment Status</h3>
+    <canvas id="statusChart"
+      data-labels='{{ status_data|map(attribute=0)|list|tojson }}'
+      data-values='{{ status_data|map(attribute=1)|list|tojson }}'></canvas>
+  </article>
+</section>
+{% endblock %}

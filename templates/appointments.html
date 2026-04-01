@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% from 'base.html' import render_pagination %}
+{% block title %}Appointments | MediFlow{% endblock %}
+{% block page_title %}Appointment Studio{% endblock %}
+
+{% block content %}
+<section class="panel glass reveal">
+  <div class="row between">
+    <h3>Appointments</h3>
+    <a class="btn-primary ripple" href="{{ url_for('book_appointment') }}">+ Book Appointment</a>
+  </div>
+
+  <div class="table-wrap custom-scroll">
+    <table class="fancy-table">
+      <thead>
+        <tr>
+          <th class="sortable-th">ID</th>
+          <th class="sortable-th">Patient</th>
+          <th class="sortable-th">Doctor</th>
+          <th class="sortable-th">Date</th>
+          <th class="sortable-th">Time</th>
+          <th class="sortable-th">Status</th>
+          <th>Symptoms</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for a in appointments %}
+        <tr class="hover-lift">
+          <td>#{{ a[0] }}</td>
+          <td>{{ a[1] }}</td>
+          <td>{{ a[2] }}</td>
+          <td>{{ a[3] }}</td>
+          <td>{{ a[4] }}</td>
+          <td>
+            <form method="POST" action="{{ url_for('update_appointment_status', appointment_id=a[0]) }}">
+              <select name="status" onchange="this.form.submit()">
+                <option value="Scheduled" {% if a[5]=='Scheduled' %}selected{% endif %}>Scheduled</option>
+                <option value="Completed" {% if a[5]=='Completed' %}selected{% endif %}>Completed</option>
+                <option value="Cancelled" {% if a[5]=='Cancelled' %}selected{% endif %}>Cancelled</option>
+              </select>
+            </form>
+          </td>
+          <td>{{ a[6] or '-' }}</td>
+          <td>
+            <form method="POST" action="{{ url_for('delete_appointment', appointment_id=a[0]) }}" class="delete-form">
+              <button type="submit" class="btn-danger ripple">Delete</button>
+            </form>
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="8" class="muted">No appointments found.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {{ render_pagination(page, total_pages, 'appointments', total) }}
+</section>
+
+<section class="panel glass reveal">
+  <h3>Quick Visual Timeline</h3>
+  <div class="timeline custom-scroll">
+    {% for a in appointments %}
+      <article class="timeline-item">
+        <span class="dot"></span>
+        <div class="content">
+          <strong>{{ a[3] }} • {{ a[4] }}</strong>
+          <p>{{ a[1] }} with {{ a[2] }} — <span class="badge badge-{{ a[5]|lower }}">{{ a[5] }}</span></p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

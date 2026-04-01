@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Edit Doctor | MediFlow{% endblock %}
+{% block page_title %}Edit Doctor{% endblock %}
+{% block content %}
+{% set saved_days = doctor[3].split(',') | map('trim') | list %}
+<section class="panel glass reveal">
+  <form method="POST" class="form-grid two-col">
+    <div class="full"><label>Name</label><input type="text" name="name" value="{{ doctor[1] }}" required></div>
+    <div><label>Specialty</label><input type="text" name="specialty" value="{{ doctor[2] }}" required></div>
+    <div><label>Phone</label><input type="text" name="phone" value="{{ doctor[4] }}" required></div>
+    <div class="full">
+      <label>Available Days</label>
+      <div class="day-picker">
+        <button type="button" class="day-picker-toggle"><span>Select days…</span><span class="dp-arrow">▾</span></button>
+        <div class="day-picker-dropdown">
+          {% for day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] %}
+          <label>
+            <input type="checkbox" name="available_days" value="{{ day }}"
+              {% if day in saved_days %}checked{% endif %}>
+            {{ day }}
+          </label>
+          {% endfor %}
+        </div>
+        <div class="day-picker-selected"></div>
+      </div>
+    </div>
+    <div class="full"><button class="btn-primary ripple" type="submit">Update Doctor</button></div>
+  </form>
+</section>
+{% endblock %}

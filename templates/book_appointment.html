@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Book Appointment | MediFlow{% endblock %}
+{% block page_title %}Book Appointment{% endblock %}
+
+{% block content %}
+<section class="panel glass reveal">
+  <form method="POST" class="form-grid two-col">
+    <div>
+      <label>Patient</label>
+      <select name="patient_id" required>
+        <option value="">Select Patient</option>
+        {% for p in patients %}
+          <option value="{{ p[0] }}">{{ p[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label>Doctor</label>
+      <select name="doctor_id" required>
+        <option value="">Select Doctor</option>
+        {% for d in doctors %}
+          <option value="{{ d[0] }}">{{ d[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div>
+      <label>Appointment Date</label>
+      <input type="date" name="appointment_date" required>
+    </div>
+
+    <div>
+      <label>Appointment Time</label>
+      <input type="time" name="appointment_time" required>
+    </div>
+
+    <div class="full">
+      <label>Symptoms</label>
+      <textarea name="symptoms" rows="4" placeholder="Short notes..."></textarea>
+    </div>
+
+    <div class="full">
+      <button class="btn-primary" type="submit">Book Now</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

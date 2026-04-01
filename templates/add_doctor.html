@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Add Doctor | MediFlow{% endblock %}
+{% block page_title %}Add Doctor{% endblock %}
+{% block content %}
+<section class="panel glass reveal">
+  <form method="POST" class="form-grid two-col" id="addDoctorForm">
+    <div class="full"><label>Name</label><input type="text" name="name" required></div>
+    <div><label>Specialty</label><input type="text" name="specialty" required></div>
+    <div><label>Phone</label><input type="text" name="phone" required></div>
+    <div class="full">
+      <label>Available Days</label>
+      <div class="day-picker">
+        <button type="button" class="day-picker-toggle"><span>Select days…</span><span class="dp-arrow">▾</span></button>
+        <div class="day-picker-dropdown">
+          {% for day in ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] %}
+          <label><input type="checkbox" name="available_days" value="{{ day }}"> {{ day }}</label>
+          {% endfor %}
+        </div>
+        <div class="day-picker-selected"></div>
+      </div>
+    </div>
+    <div class="full"><button class="btn-primary ripple" type="submit">Save Doctor</button></div>
+  </form>
+</section>
+{% endblock %}
