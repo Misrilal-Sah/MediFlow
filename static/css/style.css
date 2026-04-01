@@ -143,12 +143,78 @@ select,input,textarea{
 }
 @keyframes ripple{to{transform:scale(4);opacity:0}}
 
+/* ── Tablet (768 – 1024px): icon-only sidebar, content inset ── */
 @media (max-width:1024px){
-  .with-sidebar{margin-left:0}
-  .sidebar{position:static;width:auto;margin:12px}
+  .with-sidebar{margin-left:120px}
+  .with-sidebar.sidebar-collapsed{margin-left:120px}
+  .sidebar{width:88px}
+  .sidebar .menu-text,.sidebar .brand-text{display:none}
+  .sidebar .menu-item{justify-content:center;padding:11px}
+  .sidebar .sidebar-actions .btn{justify-content:center;padding:10px}
+  .sidebar .sidebar-actions .menu-text{display:none}
   .form-grid.two-col{grid-template-columns:1fr}
-  .cards-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:1fr 1fr}
   .grid-2{grid-template-columns:1fr}
+}
+
+/* ── Mobile backdrop overlay ── */
+.sidebar-backdrop{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:499;
+}
+.sidebar-backdrop.show{display:block}
+
+/* ── Mobile sticky header (hamburger bar) ── */
+.mobile-header{
+  display:none;position:sticky;top:0;z-index:400;
+  padding:10px 16px;align-items:center;justify-content:space-between;gap:12px;
+}
+.mobile-hamburger{
+  background:none;border:none;color:var(--text);cursor:pointer;
+  padding:6px;border-radius:8px;display:flex;align-items:center;
+}
+.mobile-hamburger:hover{background:rgba(255,255,255,.1)}
+
+/* ── Mobile (≤767px): off-canvas sidebar overlay ── */
+@media(max-width:767px){
+  .mobile-header{display:flex}
+  .sidebar{
+    position:fixed;left:0;top:0;bottom:0;width:260px;
+    border-radius:0 var(--radius) var(--radius) 0;
+    transform:translateX(-110%);z-index:500;
+    transition:transform .35s ease;
+  }
+  .sidebar.mobile-open{transform:translateX(0)}
+  .with-sidebar{margin-left:0 !important}
+  .with-sidebar.sidebar-collapsed{margin-left:0 !important}
+  .layout{padding:10px}
+  .panel{padding:12px}
+  .topbar{padding:10px 14px;flex-wrap:wrap;gap:8px}
+  .topbar h1{font-size:1.25rem}
+  .topbar .user-pill{display:none}
+  .row.between{flex-wrap:wrap}
+  .fancy-table th,.fancy-table td,th,td{padding:8px 10px;font-size:.82rem}
+  .stat-number{font-size:1.8rem}
+  .cards-grid{grid-template-columns:1fr 1fr}
+  .grid-2{grid-template-columns:1fr}
+  .form-grid.two-col{grid-template-columns:1fr}
+  .auth-card{margin:16px auto;padding:20px 16px}
+  .pagination{flex-direction:column;align-items:flex-start;gap:8px}
+  .actions-row{flex-wrap:wrap;gap:8px}
+  .modal-actions{flex-wrap:wrap}
+  input,select,textarea{font-size:16px !important}
+  .user-pill{font-size:.8rem;padding:7px 10px}
+  .toast-container{right:10px;left:10px;bottom:10px}
+  .toast{font-size:.85rem}
+  .settings-grid{grid-template-columns:1fr}
+}
+
+/* ── Extra-small phones (≤480px) ── */
+@media(max-width:480px){
+  .cards-grid{grid-template-columns:1fr}
+  .stat-number{font-size:1.6rem}
+  .page-btn{min-width:30px;height:30px;padding:0 8px;font-size:.8rem}
+  .topbar h1{font-size:1.1rem}
+  .btn-primary,.btn-secondary,.btn-danger{padding:8px 14px;font-size:.85rem}
 }
 
 /* ── Button aliases (btn-primary / btn-secondary / btn-danger) ── */
