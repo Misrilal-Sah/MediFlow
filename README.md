@@ -156,8 +156,25 @@ Visit `http://127.0.0.1:5000` in your browser.
 | `SMTP_DISPLAY_NAME` | Display name in emails | `MediFlow` |
 
 
+## Roadmap
+
+- [ ] Role-based access control (Admin / Doctor / Receptionist)
+- [ ] Patient medical history & prescription records
+- [ ] Appointment reminders via email
+- [ ] Invoice & billing module
+- [ ] REST API for mobile integration
+- [ ] Docker support for easy deployment
+
+## Contributing
+
+Contributions are welcome! Please open an issue first to discuss the change you'd like to make, then submit a pull request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'feat: add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
 ## License
 
 MIT © Misrilal Sah
-
-<!-- contributors: Misrilal-Sah, john-msg-715 -->
