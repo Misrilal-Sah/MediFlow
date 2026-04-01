@@ -32,22 +32,50 @@ document.addEventListener("DOMContentLoaded", () => {
     pushToast(`Theme changed to ${next}`);
   });
 
-  // Sidebar collapse
+  // Sidebar collapse / mobile overlay
   const sidebar = document.getElementById("sidebar");
   const sidebarBtn = document.getElementById("sidebarToggle");
+  const mobileBtn = document.getElementById("mobileMenuBtn");
+  const backdrop = document.getElementById("sidebarBackdrop");
   const pageRoot = document.getElementById("pageRoot");
+  const isMobile = () => window.innerWidth <= 767;
+
+  // Restore desktop collapsed state
   const collapsed = localStorage.getItem("sidebar-collapsed") === "1";
-  if (collapsed && sidebar) {
+  if (collapsed && sidebar && !isMobile()) {
     sidebar.classList.add("collapsed");
     pageRoot?.classList.add("sidebar-collapsed");
   }
 
+  function openMobileSidebar() {
+    sidebar?.classList.add("mobile-open");
+    backdrop?.classList.add("show");
+    document.body.style.overflow = "hidden";
+  }
+  function closeMobileSidebar() {
+    sidebar?.classList.remove("mobile-open");
+    backdrop?.classList.remove("show");
+    document.body.style.overflow = "";
+  }
+
+  mobileBtn?.addEventListener("click", openMobileSidebar);
+  backdrop?.addEventListener("click", closeMobileSidebar);
+
+  // Close sidebar on nav tap on mobile
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.addEventListener("click", () => { if (isMobile()) closeMobileSidebar(); });
+  });
+
+  // Desktop sidebar toggle button (X icon inside sidebar)
   sidebarBtn?.addEventListener("click", () => {
+    if (isMobile()) { closeMobileSidebar(); return; }
     sidebar?.classList.toggle("collapsed");
     const isNowCollapsed = sidebar?.classList.contains("collapsed");
     pageRoot?.classList.toggle("sidebar-collapsed", isNowCollapsed);
     localStorage.setItem("sidebar-collapsed", isNowCollapsed ? "1" : "0");
   });
+
+  window.addEventListener("resize", () => { if (!isMobile()) closeMobileSidebar(); });
 
   // Auto remove flash + mirror as toast
   document.querySelectorAll(".flash").forEach((f, i) => {

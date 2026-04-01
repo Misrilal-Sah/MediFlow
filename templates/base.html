@@ -114,6 +114,21 @@
   </aside>
   {% endif %}
 
+  {% if session.get('user_id') %}
+  <!-- Mobile sticky header — visible only on phones (≤767px) via CSS -->
+  <div class="mobile-header glass" id="mobileHeader">
+    <button class="mobile-hamburger" id="mobileMenuBtn" aria-label="Open navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <img src="https://res.cloudinary.com/ddrlxvnsh/image/upload/v1775064288/logo_kyqvgv.png" alt="MediFlow" style="height:28px">
+    {% if session.get('user_name') %}
+    <span class="user-pill" style="font-size:.78rem;padding:6px 10px">{{ session.get('user_name') }}</span>
+    {% endif %}
+  </div>
+  <!-- Backdrop for mobile sidebar overlay -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  {% endif %}
+
   <main class="{% if session.get('user_id') %}layout with-sidebar{% else %}layout auth-layout{% endif %}" id="pageRoot">
     {% block topbar %}
     <header class="topbar glass">
