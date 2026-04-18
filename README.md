@@ -177,15 +177,6 @@ The dashboard features live stats, a doughnut chart for appointment status distr
 - Email verification flow with tokenized links
 - Dark / Light mode toggle
 
-## Contributing
-
-Contributions are welcome! Please open an issue first to discuss the change you'd like to make, then submit a pull request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'feat: add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
 
 ## License
 
