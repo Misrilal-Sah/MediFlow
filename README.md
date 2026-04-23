@@ -138,7 +138,6 @@ python app.py
 
 Visit `http://127.0.0.1:5000` in your browser.
 
-
 ## Environment Variables Reference
 
 | Variable | Description | Default |
@@ -154,7 +153,6 @@ Visit `http://127.0.0.1:5000` in your browser.
 | `SMTP_EMAIL` | Sender email address | *(required for email features)* |
 | `SMTP_PASSWORD` | SMTP App Password | *(required for email features)* |
 | `SMTP_DISPLAY_NAME` | Display name in emails | `MediFlow` |
-
 
 
 ## Screenshots
