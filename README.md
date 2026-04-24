@@ -178,5 +178,3 @@ The dashboard features live stats, a doughnut chart for appointment status distr
 
 ## License
 MIT Â© Misrilal Sah
-
-
